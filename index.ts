@@ -10,8 +10,12 @@ const server = Bun.serve({
     }
 
     // lil err
-    if (url.pathname === '/about') {
+    if (url.pathname === '/lil-error') {
       throw new Error('There was an error!');
+    }
+    // lil text read
+    if (url.pathname === '/read-text') {
+      return new Response(Bun.file('./assets/example.txt'));
     }
 
     return new Response('Not Found!');
